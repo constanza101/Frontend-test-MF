@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+$font-stack:'Ubuntu', sans-serif;
+$button-color: linear-gradient(to bottom left, #999999 0%, #dddddd 100%);
+$button-color2: linear-gradient(to bottom left, #000 0%, #dddddd 100%);
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    font-size:16px;
+    font-family: $font-stack;
+}
+body{
+    background-color:#F0F0F0
+}
+
+.main-container{
+    background-color:#fff;
+    width:400px;
+    padding:32px;
+    margin:32px auto;
+    border-radius:15px;
+    box-shadow:5px 5px 20px 0 #888;
+
+    .search-form{
+        margin:0 auto;
+        text-align:center;
+
+
+        input{
+          padding:8px 16px;
+          font-size:.8em;
+          width:240px;
+          border:1px solid #D6D6D6;
+          border-radius: 4px;
+
+      }
+
+        button{
+          font-weight:bold;
+          font-size:.8em;
+          padding:8px 16px;
+          margin:0 0 0 10px;
+          border-radius:4px;
+          border:1px solid #D6D6D6;
+          background-color:#fff
+      }
+        button:hover{
+          background-color:#f1f1f1
+      }
+
+    }
+}
+
+    .results{
+      margin-top: 15px;;
+      .user-logo{
+        width: 72px;
+        height: 72px;
+        float: left;
+        margin-right: 15px;
+        background-color: gray;
+      }
+    }
