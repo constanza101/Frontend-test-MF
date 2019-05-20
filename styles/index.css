@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@
 
 html {
   font-size: 16px;
-  font-family: "Ubuntu", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -54,7 +54,25 @@ body {
   height: 72px;
   float: left;
   margin-right: 15px;
-  background-color: gray;
+}
+.results .user-logo img {
+  height: -webkit-fill-available;
+}
+.results .user-info {
+  height: 72px;
+}
+.results .repositories {
+  margin-top: 2px;
+}
+.results hr {
+  margin-top: 10px;
+  border: solid 1px gray;
+}
+.results #reposTable {
+  table-layout: initial;
+}
+.results #reposTable tr:nth-child(1) > td:nth-child(1) {
+  width: 67%;
 }
 
 /*# sourceMappingURL=index.css.map */
