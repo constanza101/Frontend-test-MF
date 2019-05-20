@@ -14,6 +14,16 @@ body {
   background-color: #F0F0F0;
 }
 
+.loginName, .description {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.fullName {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
 .main-container {
   background-color: #fff;
   width: 400px;
@@ -62,7 +72,7 @@ body {
   height: 72px;
 }
 .results .repositories {
-  margin-top: 2px;
+  margin-top: 20px;
 }
 .results hr {
   margin-top: 10px;
@@ -70,9 +80,18 @@ body {
 }
 .results #reposTable {
   table-layout: initial;
+  width: 100%;
 }
-.results #reposTable tr:nth-child(1) > td:nth-child(1) {
-  width: 67%;
+
+td, th {
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+  padding: 10px;
+}
+
+td {
+  text-align: right;
+  font-size: 14px;
 }
 
 /*# sourceMappingURL=index.css.map */

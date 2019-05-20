@@ -71,7 +71,7 @@ function printRepos(repos){
 
     document.querySelector("table").innerHTML=
     document.querySelector("table").innerHTML +
-    '<tr><th scope="row">'+repoName+'</th><td>'+starImg+' '+stars+' '+forkImg+' '+forks+'</td>'
+    '<tr><th scope="row">'+repoName+'</th><td>'+starImg+' '+stars+' '+forkImg+' '+forks+'</td></tr>'
 
   }
   }
