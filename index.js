@@ -23,9 +23,6 @@
 
 function searchRepos(name, url){
 var req = new XMLHttpRequest();
-var name = "constanza101";
-var urlRepos = "https://api.github.com/users/"+name+"/repos"
-console.log(urlRepos);
 req.open("GET", urlRepos, true);
 req.onreadystatechange = function(){
   if (req.readyState == 4) {
@@ -67,7 +64,7 @@ function printRepos(repos){
     let repoName = repos[i]["name"];
     let starImg = '<img src="src/star.svg" alt="star">'
     let stars = repos[i]["stargazers_count"];
-    let forkImg = '<img src="src/star.svg" alt="star">'
+    let forkImg = '<img src="src/fork.svg" alt="forks">'
     let forks = repos[i]["forks_count"];
 
     console.log(repoName, stars, forks);
