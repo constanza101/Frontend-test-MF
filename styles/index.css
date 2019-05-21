@@ -57,6 +57,17 @@ body {
   background-color: #f1f1f1;
 }
 
+.noResults {
+  display: none;
+  margin-top: 20px;
+  background-color: #F2DEDF;
+  border: solid 1px #dbb1b3;
+  border-radius: 3px;
+  color: #AB4748;
+  padding: 15px;
+  font-size: 14px;
+}
+
 .results {
   margin-top: 15px;
 }

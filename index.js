@@ -1,18 +1,40 @@
+/*
+ function getUserDataWithCallback(cb) {
+  var xhr = new XMLHttpRequest()
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == 4) {
+      cb(xhr.responseText)
+    }
+  }
+  xhr.open('get', 'https://api.github.com/users/bluejack', true)
+  xhr.send()
+}
+getUserDataWithCallback(function(text) {
+  console.log(text)
+})
+*/
 
-//function getUser(){
+function search(){
+    getUser(function(text) {
+      console.log(text)
+    })
+}
 
+function getUser(callback){
+//  var name = "constanza101"
   var name = "constanza101"
+
   var urlUser="https://api.github.com/users/"+name;
   var urlRepos = "https://api.github.com/users/"+name+"/repos";
-
   var req = new XMLHttpRequest();
   req.open("GET", urlUser, true);
-  console.log(req.readyState);
   req.onreadystatechange = function(){
     if (req.readyState == 4) {
       if(req.status == 200 && req.response != "") {
         if(req.status == 200){
+
          const parsedResponse = JSON.parse(req.response);
+         callback(parsedResponse);
          printUserDetails(parsedResponse);
          console.log(urlRepos);
          searchRepos(name, urlRepos)
@@ -23,9 +45,9 @@
    }
  }
  req.send();
-//}//getUser
+}//getUser
 
-function searchRepos(name, url){
+function searchRepos(name, urlRepos){
 var req = new XMLHttpRequest();
 req.open("GET", urlRepos, true);
 req.onreadystatechange = function(){
