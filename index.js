@@ -1,9 +1,13 @@
-//function searchUser(name){
-  var req = new XMLHttpRequest();
-  var name = "constanza101";
+
+//function getUser(){
+
+  var name = "constanza101"
   var urlUser="https://api.github.com/users/"+name;
-  var urlRepos = "https://api.github.com/users/"+name+"/repos"
+  var urlRepos = "https://api.github.com/users/"+name+"/repos";
+
+  var req = new XMLHttpRequest();
   req.open("GET", urlUser, true);
+  console.log(req.readyState);
   req.onreadystatechange = function(){
     if (req.readyState == 4) {
       if(req.status == 200 && req.response != "") {
@@ -16,10 +20,10 @@
          console.log("Error loading page");
         }
       }
-    }
-  }
-  req.send();
-//} //fin-searchUser()
+   }
+ }
+ req.send();
+//}//getUser
 
 function searchRepos(name, url){
 var req = new XMLHttpRequest();
@@ -74,4 +78,4 @@ function printRepos(repos){
     '<tr><th scope="row">'+repoName+'</th><td>'+starImg+' '+stars+' '+forkImg+' '+forks+'</td></tr>'
 
   }
-  }
+}
