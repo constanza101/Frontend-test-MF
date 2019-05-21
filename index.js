@@ -1,65 +1,63 @@
-/*
- function getUserDataWithCallback(cb) {
-  var xhr = new XMLHttpRequest()
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == 4) {
-      cb(xhr.responseText)
-    }
-  }
-  xhr.open('get', 'https://api.github.com/users/bluejack', true)
-  xhr.send()
+const searchInputForm = document.getElementById('searchForm');
+
+searchInputForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+});
+
+const searchButtonElement = document.getElementById('searchButton');
+
+searchButtonElement.addEventListener('click', function(event) {
+  search();
+});
+
+function search() {
+  const userName = document.getElementById('searchInput').value;;
+  const urlRepos = "https://api.github.com/users/" + userName + "/repos";
+
+  getUser(userName, function(parsedResponse) {
+    printUserDetails(parsedResponse);
+    searchRepos(urlRepos)
+  }, function(error) {
+    showError();
+    console.log("getUser error");
+
+  });
 }
-getUserDataWithCallback(function(text) {
-  console.log(text)
-})
-*/
 
-function search(){
-    getUser(function(text) {
-      console.log(text)
-    })
-}
-
-function getUser(callback){
-//  var name = "constanza101"
-  var name = "constanza101"
-
-  var urlUser="https://api.github.com/users/"+name;
-  var urlRepos = "https://api.github.com/users/"+name+"/repos";
+function getUser(userName, success, error) {
+  var urlUser="https://api.github.com/users/" + userName;
   var req = new XMLHttpRequest();
+
   req.open("GET", urlUser, true);
   req.onreadystatechange = function(){
-    if (req.readyState == 4) {
-      if(req.status == 200 && req.response != "") {
-        if(req.status == 200){
+    if (req.readyState === 4) {
+      if (req.status === 200) {
+          const parsedResponse = JSON.parse(req.response);
 
-         const parsedResponse = JSON.parse(req.response);
-         callback(parsedResponse);
-         printUserDetails(parsedResponse);
-         console.log(urlRepos);
-         searchRepos(name, urlRepos)
-       }else{
-         console.log("Error loading page");
-        }
+          success(parsedResponse);
       }
-   }
- }
- req.send();
-}//getUser
 
-function searchRepos(name, urlRepos){
+      if (req.status === 404) {
+        console.log('User not found');
+        error();
+      }
+    }
+  }
+
+  req.send();
+} //getUser
+
+function searchRepos(urlRepos){
 var req = new XMLHttpRequest();
+
 req.open("GET", urlRepos, true);
 req.onreadystatechange = function(){
-  if (req.readyState == 4) {
-    if(req.status == 200 && req.response != "") {
-      if(req.status == 200){
-       const parsedResponse = JSON.parse(req.response);
-       console.log(parsedResponse);
-       printRepos(parsedResponse);
-     }else{
-       console.log("Error loading page");
-      }
+  if (req.readyState === 4) {
+    if (req.status === 200) {
+        const parsedResponse = JSON.parse(req.response);
+
+        console.log(parsedResponse);
+        printRepos(parsedResponse);
     }
   }
 }
@@ -68,11 +66,10 @@ req.send();
 
 
 
-function printUserDetails(data){
+function printUserDetails(data) {
    const loginName = data["login"];
    const fullName = data["name"];
    const description = data["bio"];
-   const reposUrl = data["repos_url"];
    const avatarUrl = data["avatar_url"]
 
    document.querySelector(".loginName").innerText = "@"+loginName;
@@ -82,22 +79,31 @@ function printUserDetails(data){
    document.querySelector("img").alt = loginName;
 }
 
+function printRepos(repos) {
+  const starImg = '<img src="src/star.svg" alt="star">';
+  const forkImg = '<img src="src/fork.svg" alt="forks">';
+  const tableElement = document.querySelector("table");
 
-function printRepos(repos){
+  tableElement.innerHTML = ''; // Clean up the table content.
 
   for (var i = 0; i < repos.length; i++) {
     console.log(repos[i]["name"]);
     let repoName = repos[i]["name"];
-    let starImg = '<img src="src/star.svg" alt="star">'
     let stars = repos[i]["stargazers_count"];
-    let forkImg = '<img src="src/fork.svg" alt="forks">'
     let forks = repos[i]["forks_count"];
 
     console.log(repoName, stars, forks);
 
-    document.querySelector("table").innerHTML=
-    document.querySelector("table").innerHTML +
-    '<tr><th scope="row">'+repoName+'</th><td>'+starImg+' '+stars+' '+forkImg+' '+forks+'</td></tr>'
-
+    tableElement.innerHTML += '<tr><th scope="row">' + repoName + '</th><td>' + starImg + ' ' + stars + ' ' + forkImg + ' ' + forks + '</td></tr>';
   }
+}
+
+function showError(asd) {
+  console.log("show error");
+document.getElementById("searchForm").reset()  // cleanForm()
+  // Set display visible.
+}
+
+function cleanForm() {
+
 }
