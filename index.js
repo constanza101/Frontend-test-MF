@@ -1,4 +1,12 @@
 const searchInputForm = document.getElementById('searchForm');
+const resultsDiv = document.querySelector(".results");
+const noResultsDiv = document.querySelector(".noResults");
+resultsDiv.style.display = "none"
+noResultsDiv.style.display = "none"
+
+
+//document.querySelector(".repositories").style.display = "none"
+document.querySelector(".results").style.display = "none"
 
 searchInputForm.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -15,6 +23,7 @@ function search() {
   const urlRepos = "https://api.github.com/users/" + userName + "/repos";
 
   getUser(userName, function(parsedResponse) {
+    cleanForm();
     printUserDetails(parsedResponse);
     searchRepos(urlRepos)
   }, function(error) {
@@ -56,7 +65,6 @@ req.onreadystatechange = function(){
     if (req.status === 200) {
         const parsedResponse = JSON.parse(req.response);
 
-        console.log(parsedResponse);
         printRepos(parsedResponse);
     }
   }
@@ -71,7 +79,6 @@ function printUserDetails(data) {
    const fullName = data["name"];
    const description = data["bio"];
    const avatarUrl = data["avatar_url"]
-
    document.querySelector(".loginName").innerText = "@"+loginName;
    document.querySelector(".fullName").innerText = fullName;
    document.querySelector(".description").innerText = description;
@@ -80,9 +87,12 @@ function printUserDetails(data) {
 }
 
 function printRepos(repos) {
+  document.querySelector(".results").style.display = "block"
+
   const starImg = '<img src="src/star.svg" alt="star">';
   const forkImg = '<img src="src/fork.svg" alt="forks">';
   const tableElement = document.querySelector("table");
+
 
   tableElement.innerHTML = ''; // Clean up the table content.
 
@@ -100,10 +110,13 @@ function printRepos(repos) {
 
 function showError(asd) {
   console.log("show error");
-document.getElementById("searchForm").reset()  // cleanForm()
-  // Set display visible.
+  cleanForm()
+  noResultsDiv.style.display = "block"
+
+
 }
 
 function cleanForm() {
-
+  resultsDiv.style.display = "none"
+  noResultsDiv.style.display = "none"
 }
