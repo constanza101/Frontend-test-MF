@@ -14,7 +14,7 @@ searchButtonElement.addEventListener('click', function(event) {
 
 function search() {
     const userName = document.getElementById('searchInput').value;;
-    const urlRepos = "https://api.github.com/users/" + userName + "/repos";
+    const urlRepos = `https://api.github.com/users/${userName}/repos`;
     if (userName === "") {
         cleanForm();
     } else if (userName != "") {
@@ -28,7 +28,7 @@ function search() {
 }
 
 function getUser(userName, success, error) {
-    const urlUser = "https://api.github.com/users/" + userName;
+    const urlUser = `https://api.github.com/users/${userName}`;
     const req = new XMLHttpRequest();
     cleanForm();
 
@@ -55,7 +55,7 @@ function printUserDetails(data) {
     const fullName = data["name"];
     const description = data["bio"];
     const avatarUrl = data["avatar_url"]
-    document.querySelector(".loginName").innerText = "@" + loginName;
+    document.querySelector(".loginName").innerText = `@${loginName}`;
     document.querySelector(".fullName").innerText = fullName;
     document.querySelector(".description").innerText = description;
     document.querySelector("img").src = avatarUrl;
@@ -93,7 +93,11 @@ function printRepos(repos) {
         let stars = repos[i]["stargazers_count"];
         let forks = repos[i]["forks_count"];
 
-        tableElement.innerHTML += '<tr><th scope="row">' + repoName + '</th><td>' + starImg + ' ' + stars + ' ' + forkImg + ' ' + forks + '</td></tr>';
+        tableElement.innerHTML +=
+        `<tr>
+          <th scope="row">${repoName}</th>
+          <td>${starImg} ${stars} ${forkImg} ${forks}</td>
+        </tr>`;
     }
 }
 
