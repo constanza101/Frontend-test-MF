@@ -69,6 +69,7 @@ body {
 }
 
 .results {
+  display: none;
   margin-top: 15px;
 }
 .results .user-logo {
