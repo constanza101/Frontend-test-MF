@@ -15,11 +15,23 @@ It is available at my Github Pages [Link](https://constanza101.github.io/Fronten
   * It was a requirement not to use any JS library or framework.
   * **AJAX**: I have chosen to use this way of making my HTTP requests, although there are [other ways](https://medium.freecodecamp.org/here-is-the-most-popular-ways-to-make-an-http-request-in-javascript-954ce8c95aaa), this is the one which I considered best for this exercise with Vanilla JavaScript.
   * **Functional paradigm**: I have developed this app based on functional programming because it is more familiar and comfortable to me.
+  * ES6: "let" and "const" variables, template strings for a better visualization of strings + `${variables}` and embed HTML, as it allows multiline strings.
+  * [Good practices](https://code.tutsplus.com/tutorials/24-javascript-best-practices-for-beginners--net-5399):
+    * All classes in HTML are "lower-case".
+    * All let and const variables in JS are camelCase.
+    * Url used several times, saved in a UPPER_CASE gobal variable.
+    * Use of === Instead of ==.
+    * Comments on code.
+    * Not skipping curly braces or semicolons.
+    * Const variables declared outside loops.
+
+
 
 
 * **SASS:**
     * Variables: I have used **color variables** when a color is used in more than one element and **fonts variable** for an easy way to find and change if needed.
     * **Google Fonts**: Imported safe fonts.
+    * **Colors**: I used this [tool](https://imagecolorpicker.com/) to select the exact colors required, where we can upload an image and pick the color to find out its hex equivalent.
 
 **Script's  description:**
 --
