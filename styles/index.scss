@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap');
 $font-stack: 'Roboto',sans-serif;
-$button-color: linear-gradient(to bottom left,#999999 0%,#dddddd 100%);
-$button-color2: linear-gradient(to bottom left,#000 0%,#dddddd 100%);
+$form-inputs-border-color: #D6D6D6;
+
 * {
     margin: 0;
     padding: 0;
@@ -37,7 +37,7 @@ body {
             padding: 8px 16px;
             font-size: .8em;
             width: 240px;
-            border: 1px solid #D6D6D6;
+            border: 1px solid $form-inputs-border-color;
             border-radius: 4px;
         }
         button {
@@ -46,7 +46,7 @@ body {
             padding: 8px 16px;
             margin: 0 0 0 10px;
             border-radius: 4px;
-            border: 1px solid #D6D6D6;
+            border: 1px solid $form-inputs-border-color;
             background-color: #fff;
         }
         button:hover {
