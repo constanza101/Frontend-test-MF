@@ -97,8 +97,8 @@ searchButtonElement.addEventListener('click', function(event) {
 
 
 
-* Iif user does not exist: calls **error function**.
-* Iif user searched exists: calls **success function** described below:
+* If user does not exist: calls **error function**.
+* If user searched exists: calls **success function** described below:
   * Calls a function to print the user's personal details from the data received as a response from the GET request.
   * Calls function that makes a new GET request to the Github repositories endpoint for the current user.
 
@@ -117,8 +117,8 @@ function printUserDetails(data) {
     const fullName = data["name"];
     const description = data["bio"];
     const avatarUrl = data["avatar_url"];
-    document.querySelector(".loginName").innerText = `@${loginName}`;
-    document.querySelector(".fullName").innerText = fullName;
+    document.querySelector(".login-name").innerText = `@${loginName}`;
+    document.querySelector(".full-name").innerText = fullName;
     document.querySelector(".description").innerText = description;
     document.querySelector("img").src = avatarUrl;
     document.querySelector("img").alt = loginName;

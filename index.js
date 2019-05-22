@@ -1,7 +1,8 @@
 const RESULTS_DIV = document.querySelector(".results");
-const NO_RESULTS_DIV = document.querySelector(".noResults");
+const NO_RESULTS_DIV = document.querySelector(".no-results");
 const SEARCH_FORM = document.getElementById('searchForm');
 const GITHUB_USERS = "https://api.github.com/users/";
+
 
 SEARCH_FORM.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -12,7 +13,6 @@ SEARCH_FORM.addEventListener('submit', function(event) {
  */
 
 const searchButtonElement = document.getElementById('searchButton');
-
 searchButtonElement.addEventListener('click', function(event) {
     search();
 });
@@ -78,8 +78,8 @@ function printUserDetails(data) {
     const fullName = data["name"];
     const description = data["bio"];
     const avatarUrl = data["avatar_url"];
-    document.querySelector(".loginName").innerText = `@${loginName}`;
-    document.querySelector(".fullName").innerText = fullName;
+    document.querySelector(".login-name").innerText = `@${loginName}`;
+    document.querySelector(".full-name").innerText = fullName;
     document.querySelector(".description").innerText = description;
     document.querySelector("img").src = avatarUrl;
     document.querySelector("img").alt = loginName;

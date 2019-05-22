@@ -57,7 +57,7 @@ body {
   background-color: #f1f1f1;
 }
 
-.noResults {
+.no-results {
   display: none;
   margin-top: 20px;
   background-color: #F2DEDF;
