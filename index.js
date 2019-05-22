@@ -1,10 +1,10 @@
-const RESULTS_DIV = document.querySelector(".results");
-const NO_RESULTS_DIV = document.querySelector(".no-results");
-const SEARCH_FORM = document.getElementById('searchForm');
 const GITHUB_USERS = "https://api.github.com/users/";
+const resultsDiv = document.querySelector(".results");
+const noResultsDiv = document.querySelector(".no-results");
+const searchForm = document.getElementById('searchForm');
 
 
-SEARCH_FORM.addEventListener('submit', function(event) {
+searchForm.addEventListener('submit', function(event) {
     event.preventDefault();
 });
 
@@ -118,7 +118,7 @@ function printRepos(repos) {
     const tableElement = document.querySelector("table");
 
     tableElement.innerHTML = ''; // Clean up the table content.
-    RESULTS_DIV.style.display = "block";
+    resultsDiv.style.display = "block";
 
     for (let i = 0; i < repos.length; i++) {
         console.log(repos[i]["name"]);
@@ -139,7 +139,7 @@ function printRepos(repos) {
 */
 
 function showError() {
-    NO_RESULTS_DIV.style.display = "block";
+    noResultsDiv.style.display = "block";
 }
 
 /**
@@ -147,6 +147,6 @@ function showError() {
 */
 
 function cleanForm() {
-    RESULTS_DIV.style.display = "none";
-    NO_RESULTS_DIV.style.display = "none";
+    resultsDiv.style.display = "none";
+    noResultsDiv.style.display = "none";
 }
