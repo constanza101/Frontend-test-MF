@@ -20,7 +20,7 @@ This is the development of the Front End Test described [here](https://github.co
     * **Google Fonts**: Imported safe fonts.
 
 **Script's  description:**
-    --
+--
 
 * **Form prevent default**, to avoid refreshing the browser on submit.
 
