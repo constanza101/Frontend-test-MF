@@ -39,7 +39,7 @@ It is available at my Github Pages [Link](https://constanza101.github.io/Fronten
 * **Form prevent default**, to avoid refreshing the browser on submit.
 
 ``` javascript
-SEARCH_FORM.addEventListener('submit', function(event) {
+searchForm.addEventListener('submit', function(event) {
     event.preventDefault();
 });
 ```
@@ -172,7 +172,7 @@ function printRepos(repos) {
     const tableElement = document.querySelector("table");
 
     tableElement.innerHTML = ''; // Clean up the table content.
-    RESULTS_DIV.style.display = "block";
+    resultsDiv.style.display = "block";
 
     for (let i = 0; i < repos.length; i++) {
         console.log(repos[i]["name"]);
@@ -196,14 +196,14 @@ function printRepos(repos) {
 
 ```javascript
 function showError() {
-    NO_RESULTS_DIV.style.display = "block";
+    noResultsDiv.style.display = "block";
 }
 ```
 * **cleanForm()**: useful function to hide previously displayed results.
 
 ```javascript
 function cleanForm() {
-    RESULTS_DIV.style.display = "none";
-    NO_RESULTS_DIV.style.display = "none";
+    resultsDiv.style.display = "none";
+    noResultsDiv.style.display = "none";
 }
 ```
